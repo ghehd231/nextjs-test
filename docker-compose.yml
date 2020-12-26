@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  app:
+    container_name: nextjs-test
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+      - "/app/.next"
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+      - CHOKIDAR_USEPOLLING=true
